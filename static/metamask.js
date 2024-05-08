@@ -11,6 +11,9 @@ async function connectMetamask() {
             console.error('Metamask 登入失敗：', error);
         }
     } else {
-        alert('請安裝 Metamask 以繼續。');
+        if (window.confirm('請安裝 Metamask 以繼續。'))
+            {
+            window.open('https://metamask.io/download/', '_blank');
+            };
     }
 }
