@@ -1,0 +1,81 @@
+body {
+  background: linear-gradient(to right, #F4F4F4, #E4DBD2);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative; /* 添加這一行 */
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  border-radius: 20px; /* 設置圓弧的編筐半徑 */
+  background-color: #fff; /* 背景色 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+  padding: 20px;
+}
+
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.voting-options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.option {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #A7BEC6;
+  color:white;
+  font-weight: 900;
+  font-size: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #206d24;
+}
+
+.metamask-login {
+  position: absolute; /* 添加這一行 */
+  top: 5px; /* 添加這一行 */
+  right: 5px; /* 添加這一行 */
+  float: right;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #CB9B8F;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.metamask-login:hover {
+  background-color: #E3BCB5;
+}
+
+.chart-container {
+  display: none;
+}
