@@ -2,7 +2,7 @@
 
 為了確保正確的執行，請按照以下步驟進行安裝：
 
-1. 使用 [Anaconda]([url](https://www.anaconda.com/download/success)) 創建一個名為 `vote` 的虛擬環境：
+1. 使用 [Anaconda]([url]('https://www.anaconda.com/download/success')) 創建一個名為 `vote` 的虛擬環境：
 
     ```bash
     conda create --name vote python=3.9.16
