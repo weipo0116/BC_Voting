@@ -2,7 +2,7 @@
 
 為了確保正確的執行，請按照以下步驟進行安裝：
 
-1. 使用 [Anaconda]([Anaconda]('https://www.anaconda.com/download/success')) 創建一個名為 `vote` 的虛擬環境：
+1. 使用 ([Anaconda]('https://www.anaconda.com/download/success')) 創建一個名為 `vote` 的虛擬環境：
 https://www.anaconda.com/download/success
 
     ```bash
