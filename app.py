@@ -12,6 +12,18 @@ c = conn.cursor()
 def index():
     return render_template('index.html')
 
+@app.route('/create-vote', methods=['POST'])
+def create_vote():
+    option = request.form['option']
+    c.execute("INSERT INTO votes (option, count) VALUES (?, 0)", (option,))
+    conn.commit()
+    return "新增投票成功!"
+
+@app.route('/create-vote-page')
+def create_vote_page():
+    return render_template('createPg.html')
+
+
 # 投票接口，接收投票並更新數據庫
 @app.route('/vote', methods=['POST'])
 def vote():

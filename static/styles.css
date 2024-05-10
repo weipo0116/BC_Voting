@@ -16,8 +16,22 @@ body {
   padding: 20px;
 }
 
+.right_container {
+  position: absolute; /* 添加這一行 */
+  max-width: 200px;
+  top: 100px;
+  left: 10px;
+  margin: 50px auto;
+  text-align: center;
+  border-radius: 20px; /* 設置圓弧的編筐半徑 */
+  background-color: #fff; /* 背景色 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+  padding: 20px;
+}
+
 
 h1 {
+  color: #6E4740;
   margin-bottom: 30px;
 }
 
@@ -59,18 +73,18 @@ h1 {
 
 .nccu-logo {
   position: absolute; 
-  top: 5px; 
-  left: 5px; 
+  top: 10px; 
+  left: 10px; 
 }
 
 .metamask-login {
   position: absolute; 
-  top: 5px; 
-  right: 5px; 
+  top: 10px; 
+  right: 10px; 
   float: right;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #CB9B8F;
+  background-color: #A2886D;
   color: white;
   border: none;
   border-radius: 5px;
@@ -79,9 +93,100 @@ h1 {
 }
 
 .metamask-login:hover {
-  background-color: #E3BCB5;
+  background-color: #C3BAB1;
+}
+
+.create-vote {
+  position: absolute; 
+  bottom: 30px; 
+  right: 20px; 
+  float: right;
+  padding:35px 20px;
+  font-size: 16px;
+  background-color: #C6DEE0;
+  color: #013E41;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  writing-mode: vertical-rl;
+}
+
+.create-vote:hover {
+  background-color: #ACD4D6;
 }
 
 .chart-container {
   display: none;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.add_option_btn {
+  margin-top: 10px;
+}
+
+.topic-container {
+  background-color: #A7BEC6;
+  border-radius: 10px;
+  margin:30px;
+  padding-top:10px;
+  color: #4A475C;
+}
+
+.topic-container input{
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #4A475C;
+  text-align:center;
+
+}
+
+.options-container {
+  background-color: #E3BCB5;
+  border-radius: 10px;
+  margin:30px;
+  padding-top:10px;
+  color: #4A475C;
+
+}
+
+.options-container input{
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border-style: dashed;
+  text-align:center;
+
+}
+
+input::-ms-input-placeholder {
+  text-align: center;
+}
+
+input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+option-label {
+  font-weight: bold;
+}
+
+.add_option_btn, .rmv_option_btn {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #C3BAB1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add_option_btn:hover, .rmv_option_btn:hover {
+  background-color: #A2886D;
 }
