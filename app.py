@@ -12,7 +12,7 @@ c = conn.cursor()
 def index():
     return render_template('index.html')
 
-@app.route('/create-vote', methods=['POST'])
+@app.route('/', methods=['POST'])
 def create_vote():
     option = request.form['option']
     c.execute("INSERT INTO votes (option, count) VALUES (?, 0)", (option,))
@@ -42,5 +42,17 @@ def get_results():
         results[row[1]] = row[2]
     return jsonify(results)
 
+@app.route('/api/active-votes')
+def get_active_votes():
+    c.execute("SELECT * FROM votes")
+    data = c.fetchall()
+    active_votes = []
+    for row in data:
+        active_votes.append({
+            'option': row[1],
+            'count': row[2]
+        })
+    return jsonify(active_votes)
+    
 if __name__ == '__main__':
     app.run(debug=True)

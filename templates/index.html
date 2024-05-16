@@ -37,15 +37,21 @@
               </svg>
         </button>
     </a>
-    <div class="right_container">
-        <h3>其他進行中的投票</h3>
-        <!-- 在這裡添加進行中的投票內容 -->
-    </div>
+    <div class="left_container" id="left_container">
+        <div class="vote-topic" id="vote-topics">
+          <h2>🚩 其他進行中的投票</h2>
+          <div id="topic-list">
+            <!-- 這裡將顯示創建的投票主題和選項 -->
+          </div>
+        </div>
+      </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script src="{{ url_for('static', filename='metamask.js') }}"></script>
+    <script src="{{ url_for('static', filename='logpoll.js') }}"></script>
+
 
 </body>
 

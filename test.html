@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新增投票</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}" />
+</head>
+
+<body>
+  <a href="{{ url_for('index') }}" title="政治大學_中文版校首頁">
+    <img
+      class="nccu-logo"
+      alt="國立政治大學校徽LOGO"
+      height="70"
+      src="https://www.nccu.edu.tw/var/file/0/1000/img/logo_en.png"
+      width=""
+    />
+  </a>
+  <button class="metamask-login" id="metamaskButton" onclick="connectMetamask()">
+    Metamask 登入
+  </button>
+
+  <div class="container">
+    <h1>✨ 建立新的投票 ✨</h1>
+    <div class="topic-container">
+      <label for="poll-topic">投票主題 :</label>
+      <input type="text" placeholder="投票主題名稱" id="poll-topic" required />
+    </div>
+    
+    <div class="options-container" id="options-container">
+      <label for="option">選項 1 :</label>
+      <input class="option-input" type="text" placeholder="選項 1 答案" required /><br />
+    </div>
+    <button class="add_option_btn" id="add-option-btn">新增選項</button>
+    <button class="rmv_option_btn" id="rmv-option-btn">移除選項</button>
+    <button onclick="createVote()">創建投票</button>
+
+    <!-- 在這裡添加新增投票的表單或相關內容 -->
+
+    <div class="vote-topic" id="vote-topics">
+      <h2>投票主題：</h2>
+      <ul id="topic-list">
+        <!-- 這裡將顯示創建的投票主題和選項 -->
+      </ul>
+    </div>
+  </div>
+
+  <a href="{{ url_for('index') }}">
+    <button class="create-vote" id="">
+      返回首頁
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-back-up"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M9 14l-4 -4l4 -4" />
+        <path d="M5 10h11a4 4 0 1 1 0 8h-1" />
+      </svg>
+    </button>
+  </a>
+
+  <script src="{{ url_for('static', filename='createpg.js') }}"></script>
+  <script>
+    // 獲取 Add Option 按鈕和選項容器
+    const addOptionBtn = document.getElementById('add-option-btn');
+    const optionsContainer = document.getElementById('options-container');
+
+    // 創建一個堆疊（stack）來存儲選項
+    let optionsStack = [];
+
+    // 監聽 Add Option 按鈕的點擊事件
+    addOptionBtn.addEventListener('click', function() {
+      // 獲取選項容器中已有的選項數量
+      const optionCount = optionsStack.length + 2;
+
+      // 創建一個新的選項輸入框
+      const newOptionInput = document.createElement('input');
+      newOptionInput.type = 'text';
+      newOptionInput.placeholder = `選項 ${optionCount} 答案`;
+      newOptionInput.className = 'option-input';
+      newOptionInput.required = true;
+
+      // 為選項輸入框添加標籤
+      const newOptionLabel = document.createElement('label');
+      newOptionLabel.htmlFor = 'option';
+      newOptionLabel.textContent = `選項 ${optionCount} : `;
+
+      // 創建一個換行元素
+      const lineBreak = document.createElement('br');
+
+      // 將新選項輸入框、標籤和換行元素添加到選項容器中
+      optionsContainer.appendChild(newOptionLabel);
+      optionsContainer.appendChild(newOptionInput);
+      optionsContainer.appendChild(lineBreak);
+
+      // 將新選項加入堆疊中
+      optionsStack.push({
+          label: newOptionLabel,
+          input: newOptionInput,
+          lineBreak: lineBreak
+      });
+    });
+
+    const removeOptionBtn = document.getElementById('rmv-option-btn');
+    // 監聽 Remove Option 按鈕的點擊事件
+    removeOptionBtn.addEventListener('click', function() {
+      // 確保至少保留一個選項
+      if (optionsStack.length > 0) {
+          const lastOption = optionsStack.pop();
+          optionsContainer.removeChild(lastOption.label);
+          optionsContainer.removeChild(lastOption.input);
+          optionsContainer.removeChild(lastOption.lineBreak);
+      }
+    });
+
+    function createVote() {
+      const topicInput = document.getElementById('poll-topic');
+      const options = document.querySelectorAll('.option-input');
+      const topic = topicInput.value;
+      const optionValues = [];
+      options.forEach(option => {
+          optionValues.push(option.value);
+      });
+
+      // 這裡可以將主題和選項發送到後端進行處理，此處僅示範如何顯示在前端
+      addTopicToList(topic, optionValues);
+
+      // 清空輸入
+      topicInput.value = '';
+      options.forEach(option => {
+          option.value = '';
+      });
+    }
+
+    function addTopicToList(topic, options) {
+      const topicList = document.getElementById('topic-list');
+      const listItem = document.createElement('li');
+      let optionsHTML = '';
+      options.forEach((option, index) => {
+          optionsHTML += `<li>選項 ${index + 1}: ${option}</li>`;
+      });
+      listItem.innerHTML = `
+        <strong>投票主題：${topic}</strong>
+        <ul>${optionsHTML}</ul>`;
+      topicList.appendChild(listItem);
+    }
+  </script>
+</body>
+</html>
