@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投票頁面</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+</head>
+
+<body>
+    <a href="{{ url_for('index') }}" title="政治大學_中文版校首頁">
+        <img class="nccu-logo" alt="國立政治大學校徽LOGO" height="70" src="https://www.nccu.edu.tw/var/file/0/1000/img/logo_en.png" width=""> 
+    </a>
+    <button class="metamask-login" id="metamaskButton" onclick="connectMetamask()">Metamask 登入</button>
+
+    <div class="container">
+        <h1>校長是誰？</h1>
+        <div class="voting-options">
+            <div class="option" id="option1" onclick="castVote('option1')">理菜宴</div>
+            <div class="option" id="option2" onclick="castVote('option2')">吳元應</div>
+        </div>
+        <button class="submit-button" onclick="submitVote()">投票送出</button>
+        <br><br>
+        <!-- <div id="chart-container" class="chart-container">
+            <canvas id="chart"></canvas>
+        </div> -->
+
+    </div>
+    <a href="{{ url_for('create_vote_page') }}">
+        <button class="create-vote" id="">創建新投票
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle-plus">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                <path d="M9 12h6" />
+                <path d="M12 9v6" />
+              </svg>
+        </button>
+    </a>
+    <div class="left_container" id="left_container">
+        <div class="vote-topic" id="vote-topics">
+          <h2>🚩 其他進行中的投票</h2>
+          <div id="topic-list">
+            <!-- 這裡將顯示創建的投票主題和選項 -->
+          </div>
+        </div>
+      </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='metamask.js') }}"></script>
+    <script src="{{ url_for('static', filename='logpoll.js') }}"></script>
+
+
+</body>
+
+</html>

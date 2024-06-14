@@ -1,0 +1,208 @@
+body {
+  background: linear-gradient(to right, #F4F4F4, #E4DBD2);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative; /* 添加這一行 */
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  border-radius: 20px; /* 設置圓弧的編筐半徑 */
+  background-color: #fff; /* 背景色 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+  padding: 20px;
+}
+
+.left_container {
+  position: absolute; /* 添加這一行 */
+  max-width: 230px;
+  top: 100px;
+  left: 10px;
+  margin: 50px auto;
+  text-align: center;
+  border-radius: 20px; /* 設置圓弧的編筐半徑 */
+  background-color: #fff; /* 背景色 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+  padding: 20px;
+}
+
+
+h1, h2 {
+  color: #6E4740;
+  margin-bottom: 30px;
+}
+
+.voting-options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.option {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #A7BEC6;
+  color:white;
+  font-weight: 900;
+  font-size: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #206d24;
+}
+
+.nccu-logo {
+  position: absolute; 
+  top: 10px; 
+  left: 10px; 
+}
+
+.metamask-login {
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+  float: right;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #A2886D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.metamask-login:hover {
+  background-color: #C3BAB1;
+}
+
+.create-vote {
+  position: absolute; 
+  bottom: 30px; 
+  right: 20px; 
+  float: right;
+  padding:35px 20px;
+  font-size: 16px;
+  background-color: #C6DEE0;
+  color: #013E41;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  writing-mode: vertical-rl;
+}
+
+.create-vote:hover {
+  background-color: #ACD4D6;
+}
+
+.chart-container {
+  display: none;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.add_option_btn {
+  margin-top: 10px;
+}
+
+.topic-container {
+  background-color: #A7BEC6;
+  border-radius: 10px;
+  margin:30px;
+  padding-top:10px;
+  color: #4A475C;
+}
+
+.topic-container input{
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #4A475C;
+  text-align:center;
+
+}
+
+.options-container {
+  background-color: #C6DEE0;
+  border-radius: 10px;
+  margin:30px;
+  margin-bottom: 0px;
+  padding-top:10px;
+  color: #4A475C;
+
+}
+
+.options-container input{
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border-style: dashed;
+  text-align:center;
+
+}
+
+input::-ms-input-placeholder {
+  text-align: center;
+}
+
+input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+option-label {
+  font-weight: bold;
+}
+
+.add_option_btn, .rmv_option_btn {
+  padding: 10px 15px;
+  font-size: 12px;
+  background-color: #C3BAB1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add_option_btn:hover, .rmv_option_btn:hover {
+  background-color: #A2886D;
+}
+
+.poll-card {
+  border-radius: 10px; /* 設置圓弧的編筐半徑 */
+  background-color: #ACD4D6;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 5%;
+  padding-bottom: 10%;
+}
+
+.poll-card a {
+  display: block;
+  text-decoration: none;
+  /* color: #6E4740; */
+}
